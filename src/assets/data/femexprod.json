@@ -1,0 +1,23 @@
+{
+  "femexprod": {
+    "acerca_de": {
+      "titulo": "Acerca de FEMEXPROD",
+      "descripcion": "La Federación Mexicana de Protesistas Dentales (FEMEXPROD) les da la más cordial bienvenida. Somos el gremio que impulsa la excelencia y el desarrollo profesional de los técnicos protesistas dentales en México. En FEMEXPROD, creemos firmemente en la importancia de nuestra labor para la salud bucal y la calidad de vida de los pacientes. Nos dedicamos a representar, capacitar y unir a nuestra comunidad, promoviendo los más altos estándares éticos y de calidad en cada prótesis que sale de nuestros laboratorios. Juntos, construimos un futuro más sólido y brillante para la profesión."
+    },
+    "objetivo": {
+      "descripcion": "El objetivo principal de la Federación Mexicana de Protesistas Dentales (FEMEXPROD) es elevar constantemente el nivel profesional, técnico y ético de los protesistas dentales en México. Buscamos consolidar nuestra profesión como un pilar fundamental en el sector de la salud bucal, garantizando que nuestros miembros cuenten con las herramientas, conocimientos y el respaldo necesario para ofrecer servicios de la más alta calidad, contribuyendo así al bienestar de la sociedad mexicana."
+    },
+    "mision_y_vision": {
+      "mision": "Ser la institución líder en México que impulsa el desarrollo, la capacitación y la representación de los protesistas dentales, promoviendo la excelencia técnica, ética y científica.",
+      "vision": "Consolidarnos como la referencia nacional reconocidos por nuestra vanguardia tecnológica, innovación en técnicas y materiales, y por la calidad excepcional de nuestros profesionales."
+    },
+    "valores": [
+      "Excelencia: Buscamos la perfección en cada proceso y resultado",
+      "Ética: Actuamos con integridad, honestidad y responsabilidad en todas nuestras acciones.",
+      "Innovación: Estamos comprometidos con la actualización constante y la adopción de nuevas tecnologías y técnicas.",
+      "Unidad: Fomentamos la colaboración, el respeto y el apoyo mutuo entre todos los miembros, construyendo una comunidad sólida.",
+      "Compromiso Social: Reconocemos nuestra responsabilidad con la sociedad, contribuyendo a la salud bucal.",
+      "Profesionalismo: Nos regimos por los más altos estándares de competencia y conducta."
+    ]
+  }
+}
