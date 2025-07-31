@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import logo from "../../assets/img/l1.png";
+import logo from "../../assets/img/20.png";
 import imgMision from "../../assets/img/9.png";
 
 const MisionVision = ({ info }) => {

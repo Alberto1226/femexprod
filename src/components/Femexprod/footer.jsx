@@ -27,13 +27,13 @@ const FooterCongreso = () => {
 
                     {/* Redes sociales */}
                     <div className="footer-social">
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.facebook.com/profile.php?id=100070833475115" target="_blank" rel="noopener noreferrer">
                             <i className="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/femexprodac/" target="_blank" rel="noopener noreferrer">
                             <i className="fab fa-instagram"></i>
                         </a>
-                        <a href="https://wa.me/5215555555555" target="_blank" rel="noopener noreferrer">
+                        <a href="https://wa.me/524272260603" target="_blank" rel="noopener noreferrer">
                             <i className="fab fa-whatsapp"></i>
                         </a>
                     </div>

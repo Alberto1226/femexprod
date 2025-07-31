@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet-async";
 import logoFEMEXPROD from "../../assets/congreso/femexprod-logo.png";
 import logoColegio from "../../assets/congreso/colegio-logo.png";
 import imgSanJuan from "../../assets/congreso/sanjuan.png";
-import congreso from "../../assets/congreso/1.png";
+import congreso from "../../assets/img/18.png";
 
 const Congreso = () => {
     return (

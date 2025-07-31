@@ -32,9 +32,9 @@ const InvitacionCongreso = () => {
         </p>
 
         <p className="texto">
-          Con gran entusiasmo, la Federación Mexicana de Protesistas Dentales
-          (FEMEXPROD) tiene el honor de invitarte a nuestro magno
-          <strong> LII Congreso Anual</strong>, que se llevará a cabo los días
+          La Federación Mexicana de Protesistas Dentales
+          (FEMEXPROD) tiene el honor de invitarte a nuestro 
+          <strong> Quincuagesimo Segundo Congreso Anual </strong>, que se llevará a cabo los días
           <strong> 31 de Julio y 01 de Agosto del 2026</strong>, en el vibrante y
           colonial <strong>San Juan del Río, Querétaro</strong>.
         </p>
@@ -42,7 +42,7 @@ const InvitacionCongreso = () => {
         <p className="texto">
           Bajo el lema{" "}
           <strong>
-            "De lo Convencional a lo Digital: Abriendo Nuevos Horizontes"
+            "De lo Convencional a lo Digital"
           </strong>
           , este congreso promete ser una experiencia transformadora. Hemos
           preparado un programa de primer nivel con ponentes nacionales e

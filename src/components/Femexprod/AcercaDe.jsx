@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 
 // Importa imágenes
-import logo from "../../assets/img/l1.png";
+import logo from "../../assets/img/20.png";
 import imgDientes from "../../assets/img/3.png";
 import imgSenor from "../../assets/img/4.png";
 

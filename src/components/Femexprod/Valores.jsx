@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 
 // Imagen superior
 import imgValores from "../../assets/img/10.png";
-import logo from "../../assets/img/l1.png";
+import logo from "../../assets/img/20.png";
 
 const Valores = ({ info }) => {
   return (

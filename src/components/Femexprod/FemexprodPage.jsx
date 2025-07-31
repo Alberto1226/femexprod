@@ -105,9 +105,9 @@ const FemexprodPage = () => {
                 <div id="invitacion" className="section"><InvitacionCongreso /></div>
             </Fade>
 
-            <Fade triggerOnce direction="up" duration={800} delay={1400}>
+            {/* <Fade triggerOnce direction="up" duration={800} delay={1400}>
                 <div id="hotel" className="section"><HotelCongreso /></div>
-            </Fade>
+            </Fade> */}
 
             <Fade triggerOnce direction="up" duration={800} delay={1600}>
                 <div id="precios" className="section"><CongresoPrecios /></div>

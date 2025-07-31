@@ -1,5 +1,5 @@
 import React from "react";
-import logoFEMEXPROD from "../../assets/img/l1.png";
+import logoFEMEXPROD from "../../assets/img/20.png";
 import promoBadge from "../../assets/congreso/promo.png";
 
 const CredencialPromo = () => {
