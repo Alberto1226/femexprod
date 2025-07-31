@@ -1415,6 +1415,10 @@ html {
   padding: 40px 20px;
   position: relative;
   color: #fff;
+  box-sizing: border-box;   /* evita desbordamiento por padding */
+  overflow: hidden;         /* recorta el exceso del borde curvo */
+  max-width: 100%;        /* opcional: limita ancho si el contenedor es centrado */
+  margin: 0 auto;           /* centra en pantallas grandes */
 }
 
 /* Contenedor en dos columnas */
