@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
 import { Helmet } from "react-helmet-async";
 
 const PreRegistroCongreso = () => {
@@ -7,47 +6,58 @@ const PreRegistroCongreso = () => {
     nombre: "",
     correo: "",
     telefono: "",
-    tipo: "general",
+    tipo: "General",
   });
+
+  const [loading, setLoading] = useState(false);
 
   // Manejo de cambios en el formulario
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Función para enviar a un endpoint
+  const enviarCorreo = async (url, data) => {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error en ${url}: ${response.status}`);
+    }
+
+    return response.json();
+  };
+
   // Manejo del envío del formulario
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    /**
-     * IMPORTANTE:
-     * Reemplaza "service_56ecwnb" y "template_xxxxxx" con los valores de tu cuenta EmailJS.
-     * - SERVICE_ID: lo obtienes en Email Services.
-     * - TEMPLATE_ID: lo obtienes en Templates.
-     * - PUBLIC_KEY: ya tienes "b5KUhnktsjo7uMHzM".
-     */
-    emailjs.send(
-      "service_56ecwnb",       // SERVICE ID (correcto)
-      "template_hola_femexprod", // TEMPLATE ID real (NO uses el correo)
-      formData,                 // Datos del formulario
-      "b5KUhnktsjo7uMHzM"       // PUBLIC KEY
-    )
+    try {
+      // Hacer ambos envíos en paralelo
+      await Promise.all([
+        enviarCorreo("https://apimake.isotech.mx/enviarCorreo/enviar-correo", formData),
+        enviarCorreo("https://apimake.isotech.mx/enviarCorreo/enviar-autocorreo", formData),
+      ]);
 
-      .then(
-        () => {
-          alert("Pre-registro enviado correctamente. ¡Gracias!");
-          setFormData({
-            nombre: "",
-            correo: "",
-            telefono: "",
-            tipo: "general",
-          });
-        },
-        (error) => {
-          console.error("Error al enviar el formulario:", error);
-          alert("Error al enviar el formulario. Intenta nuevamente.");
-        }
-      );
+      alert("Pre-registro enviado correctamente. ¡Gracias!");
+      setFormData({
+        nombre: "",
+        correo: "",
+        telefono: "",
+        tipo: "General",
+      });
+    } catch (error) {
+      console.error("Error al enviar el formulario:", error);
+      alert("Hubo un problema al enviar el pre-registro. Intenta nuevamente.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -106,13 +116,13 @@ const PreRegistroCongreso = () => {
         <div className="form-group">
           <label htmlFor="tipo">Tipo de Participante</label>
           <select name="tipo" value={formData.tipo} onChange={handleChange}>
-            <option value="general">General</option>
-            <option value="estudiante">Estudiante</option>
+            <option value="General">General</option>
+            <option value="Estudiante">Estudiante</option>
           </select>
         </div>
 
-        <button type="submit" className="btn-enviar">
-          Enviar Pre-Registro
+        <button type="submit" className="btn-enviar" disabled={loading}>
+          {loading ? "Enviando..." : "Enviar Pre-Registro"}
         </button>
       </form>
     </section>
