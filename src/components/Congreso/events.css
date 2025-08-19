@@ -1,0 +1,81 @@
+.events-section {
+  background: #f4f4f4;
+  padding: 2rem;
+  text-align: center;
+}
+
+.events-section h3 {
+  margin-bottom: 2rem;
+  color: #003366;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 por fila en escritorio */
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.events-item {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.events-item:hover {
+  transform: scale(1.05);
+}
+
+.events-item img {
+  width: 100%;
+  height: auto;
+  height: 500px; /* altura máxima para que no se pasen */
+  /* object-fit: contain; mostrar cartel completo sin recortes */
+  display: block;
+  margin: 0 auto;
+}
+
+.events-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centrar imagen y botón */
+}
+
+.add-to-calendar-wrapper {
+  margin-top: 0.5rem; /* espacio entre la imagen y el botón */
+}
+
+/* Pantallas grandes */
+@media (min-width: 1400px) {
+  .events-grid {
+    gap: 3rem;
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .events-item img {
+    max-height: 400px; /* imágenes más pequeñas en tablets */
+    object-fit: contain;
+  }
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+  .events-grid {
+    grid-template-columns: 1fr; /* Una columna */
+  }
+
+  .events-item img {
+    max-height: 300px; /* imágenes más chicas en móviles */
+    object-fit: contain;
+  }
+}
