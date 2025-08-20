@@ -22,6 +22,7 @@ import FooterCongreso from "./footer";
 import CredencialPromo from "../Congreso/CredencialPromo";
 import Patrocinadores from "../Congreso/Patrocinadores";
 import Eventos from "../Congreso/Eventos";
+import Areas from "../Congreso/Espacion";
 
 const FemexprodPage = () => {
     const [data, setData] = useState(null);
@@ -130,7 +131,9 @@ const FemexprodPage = () => {
             <Fade triggerOnce direction="up" duration={800} delay={2000}>
                 <div id="eventos" className="section mb-4" ><Eventos /></div>
             </Fade>
-
+            <Fade triggerOnce direction="up" duration={800} delay={2000}>
+                <div id="areas" className="section"><Areas /></div>
+            </Fade>
             <Fade triggerOnce direction="up" duration={800} delay={2000}>
                 <div id="patrocinadores" className="section"><Patrocinadores /></div>
             </Fade>
