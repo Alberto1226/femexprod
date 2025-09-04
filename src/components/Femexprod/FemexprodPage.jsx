@@ -112,29 +112,29 @@ const FemexprodPage = () => {
                 <div id="hotel" className="section"><HotelCongreso /></div>
             </Fade> */}
 
-            <Fade triggerOnce direction="up" duration={800} delay={1600}>
+            <Fade triggerOnce direction="up" duration={800} delay={1200}>
                 <div id="precios" className="section"><CongresoPrecios /></div>
             </Fade>
 
-            <Fade triggerOnce direction="up" duration={800} delay={1800}>
+            <Fade triggerOnce direction="up" duration={800} delay={1200}>
                 <div id="redes" className="section"><RegistroCongreso /></div>
             </Fade>
 
-            <Fade triggerOnce direction="up" duration={800} delay={2000}>
+            <Fade triggerOnce direction="up" duration={800} delay={1200}>
                 <div id="preregistro" className="section"><PreRegistroCongreso /></div>
             </Fade>
 
-            <Fade triggerOnce direction="up" duration={800} delay={2000}>
+            {/* <Fade triggerOnce direction="up" duration={800} delay={2000}>
                 <div id="promo" className="section"><CredencialPromo /></div>
-            </Fade>
+            </Fade> */}
 
-            <Fade triggerOnce direction="up" duration={800} delay={2000}>
+            <Fade triggerOnce direction="up" duration={800} delay={1200}>
                 <div id="eventos" className="section mb-4" ><Eventos /></div>
             </Fade>
-            <Fade triggerOnce direction="up" duration={800} delay={2000}>
+            <Fade triggerOnce direction="up" duration={800} delay={1200}>
                 <div id="areas" className="section"><Areas /></div>
             </Fade>
-            <Fade triggerOnce direction="up" duration={800} delay={2000}>
+            <Fade triggerOnce direction="up" duration={800} delay={1200}>
                 <div id="patrocinadores" className="section"><Patrocinadores /></div>
             </Fade>
 

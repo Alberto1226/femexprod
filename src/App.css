@@ -166,17 +166,17 @@ html {
 
 
 
-/*acerca de*/
+/* ========== ACERCA DE (desktop por defecto) ========== */
 
 .acerca-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 40px;
-  height: 100vh; /* OCUPAR TODA LA PANTALLA */
+  height: 100vh;                /* Ocupa la pantalla completa en desktop */
   padding: 40px;
   box-sizing: border-box;
-  background-color: #fff; /* Fondo limpio */
+  background-color: #fff;
 }
 
 /* Columna texto */
@@ -187,6 +187,9 @@ html {
 
 .acerca-logo {
   max-width: 350px;
+  width: 100%;
+  height: auto;
+  display: block;
   margin-bottom: 15px;
 }
 
@@ -215,15 +218,15 @@ html {
   line-height: 1.7;
   color: #444;
   text-align: justify;
+  margin: 0; /* Evita saltos extra */
 }
 
-/* Columna imágenes en vertical collage */
-
+/* Columna imágenes (collage horizontal en desktop) */
 .acerca-imagenes {
   flex: 1;
   max-width: 50%;
   display: flex;
-  flex-direction: row; /* Imágenes lado a lado */
+  flex-direction: row;     /* Imágenes lado a lado */
   justify-content: center;
   align-items: center;
   gap: 5px;
@@ -233,29 +236,34 @@ html {
 /* Imagen izquierda */
 .img-superior {
   width: 50%;
+  max-width: 100%;
+  height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transform: rotate(-2deg) translateX(5px);
   z-index: 2;
+  display: block;
 }
 
 /* Imagen derecha */
 .img-inferior {
   width: 50%;
+  max-width: 100%;
+  height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transform: rotate(2deg) translateX(-5px);
   z-index: 1;
+  display: block;
 }
 
-/* Pin superpuesto en cuadro verde */
+/* Pin/etiqueta superpuesto */
 .caja-bajada {
   position: absolute;
   bottom: -20px;
-  
   left: 30px;
-  background-color: #a8e6a3; /* verde pistache */
-  color: #0094d4; /* azul complementario */
+  background-color: #a8e6a3;  /* verde pistache */
+  color: #0094d4;             /* azul complementario */
   font-weight: bold;
   padding: 40px 30px;
   border-radius: 8px;
@@ -263,33 +271,75 @@ html {
   font-size: 0.95rem;
   text-align: center;
   z-index: 3;
-
-  /* Forma tipo pin */
-  
+  /* Forma tipo pin (opcional: puedes añadir clip-path si gustas) */
 }
 
-/* RESPONSIVO */
-@media (max-width: 768px) {
+/* ========== RESPONSIVO (tablet y abajo) ========== */
+
+/* A partir de 992px hacia abajo apilamos en una sola columna
+   y garantizamos que las imágenes queden DEBAJO del texto */
+@media (max-width: 992px) {
+  .acerca-container {
+    flex-direction: column;   /* apila: texto arriba, imágenes abajo (orden DOM) */
+    align-items: stretch;
+    gap: 24px;
+    height: auto;             /* evita 100vh en móvil/tablet */
+    padding: 24px;
+  }
+
+  .acerca-texto,
+  .acerca-imagenes {
+    max-width: 100%;
+    flex: none;
+  }
+
+  /* Collage simplificado: imágenes apiladas verticalmente */
   .acerca-imagenes {
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+    position: relative; /* mantiene el contexto del pin si lo usas relativo */
   }
 
   .img-superior,
   .img-inferior {
-    width: 90%;
-    transform: none;
+    width: 100%;
+    max-width: 640px;  /* tope de ancho cómodo; quítalo si quieres full width */
+    transform: none;   /* sin inclinaciones para mejor legibilidad en móvil */
   }
 
+  /* El pin se vuelve parte del flujo para que no tape contenido */
   .caja-bajada {
     position: relative;
     bottom: 0;
     left: 0;
-    margin-top: 15px;
-    clip-path: none; /* Pin más simple en móvil */
-    border-radius: 5px;
+    margin-top: 12px;
+    padding: 16px 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.12);
+    font-size: 0.95rem;
   }
 }
+
+/* Ajustes finos para móviles pequeños */
+@media (max-width: 576px) {
+  .acerca-logo { 
+    max-width: 240px; 
+  }
+
+  .acerca-texto h2 { 
+    font-size: 2rem; 
+  }
+
+  .acerca-texto p { 
+    font-size: 0.95rem; 
+  }
+
+  /* Un poco de respiro horizontal */
+  .acerca-container {
+    padding: 20px;
+  }
+}
+
 
 
 /*objetivos*/
@@ -1358,6 +1408,10 @@ html {
     overflow-x: hidden; /* evita que algo se salga horizontalmente */
   }
 
+  .texto-caligrafico{
+    font-size: 2rem;
+  }
+
   .precios {
     text-align: center;
   }
@@ -1974,4 +2028,74 @@ html {
 
 
 /*areas*/
+
+.areas-sponsors__img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* la centra horizontalmente */
+}
+
+
+
+/*eventos*/
+
+/* Capa principal del modal usando Portal a body */
+.image-modal {
+  position: fixed;      /* relativo al viewport SIEMPRE */
+  inset: 0;             /* top:0 right:0 bottom:0 left:0 */
+  z-index: 9999;
+  pointer-events: none; /* gestionamos eventos en hijos */
+}
+
+/* Fondo oscuro clicable para cerrar */
+.image-modal .modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.199);
+  pointer-events: auto; /* capta el click para cerrar */
+}
+
+/* Imagen centrada por encima del backdrop */
+.image-modal .modal-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* centrado perfecto */
+  max-width: 95vw;
+  max-height: 95vh;
+  border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.685);
+  pointer-events: none; /* evita cerrar al hacer click sobre ella */
+}
+
+/* Botón de cierre por encima de todo */
+.image-modal .close-btn {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  z-index: 10000;
+  font-size: 2.2rem;
+  line-height: 1;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  pointer-events: auto; /* clickeable */
+  transition: transform .2s ease, color .2s ease;
+}
+
+.image-modal .close-btn:hover {
+  transform: scale(1.1);
+  color: #ff5a5a;
+}
+
+/* (Opcional) Animación suave de aparición */
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translate(-50%, -48%); }
+  to   { opacity: 1; transform: translate(-50%, -50%); }
+}
+.image-modal .modal-img {
+  animation: modalFadeIn .18s ease-out;
+}
 
