@@ -38,15 +38,15 @@ const Eventos = () => {
       endTime: "18:00",
       name: "CURSO DESILICATO DE LITIO",
     },
-    {
-      img: carrusel,
-      location:
-        "Rector Victoriano Anguiano 136, Col. Rector Miguel Hidalgo, Morelia, Michoacan",
-      startDate: "2025-09-06",
-      startTime: "09:30",
-      endTime: "23:59",
-      name: "CARRUSEL INTERACTIVO DENTAL",
-    },
+    // {
+    //   img: carrusel,
+    //   location:
+    //     "Rector Victoriano Anguiano 136, Col. Rector Miguel Hidalgo, Morelia, Michoacan",
+    //   startDate: "2025-09-06",
+    //   startTime: "09:30",
+    //   endTime: "23:59",
+    //   name: "CARRUSEL INTERACTIVO DENTAL",
+    // },
   ];
 
   const sortedEvents = [...events].sort(
