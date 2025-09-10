@@ -4,6 +4,7 @@ import "./events.css";
 
 import Disilicato from "../../assets/img/events/Disilicato.jpeg";
 import carrusel from "../../assets/img/events/carrusel.jpeg";
+import exocad from "../../assets/img/events/exocad.jpeg";
 import { AddToCalendarButton } from "add-to-calendar-button-react";
 
 /** Modal de imagen usando Portal a document.body */
@@ -37,6 +38,15 @@ const Eventos = () => {
       startTime: "09:00",
       endTime: "18:00",
       name: "CURSO DESILICATO DE LITIO",
+    },
+    {
+      img: exocad,
+      location:
+        "CHIHUAHUA",
+      startDate: "2025-10-01",
+      startTime: "09:30",
+      endTime: "23:59",
+      name: "EXOCAD",
     },
     // {
     //   img: carrusel,
