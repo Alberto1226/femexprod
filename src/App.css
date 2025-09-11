@@ -2189,6 +2189,9 @@ html {
   cursor: pointer;
   box-shadow: 0 6px 18px rgba(0,0,0,.28);
   transition: transform .15s ease;
+  overflow: hidden; /* evita que el body scrollee detrás */
+  padding-bottom: calc(24px + env(safe-area-inset-bottom)); /* respeta notch */
+  padding-top: calc(16px + env(safe-area-inset-top));
 }
 .hamburger-btn:hover { transform: translateY(-1px); }
 
@@ -2261,6 +2264,12 @@ html {
   font-size: 1.9rem;
   cursor: pointer;
   padding: 4px 10px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  margin-bottom: 8px;
+  background: linear-gradient(to bottom, rgba(11,34,57,1), rgba(11,34,57,0.85));
+  border-radius: 8px;
 }
 
 /* Lista de enlaces */
@@ -2270,6 +2279,13 @@ html {
   margin: 0;
   display: grid;
   gap: 8px;
+  flex: 1 1 auto;     /* toma el espacio vertical */
+  min-height: 0;      /* clave para permitir overflow en contenedores flex */
+  overflow-y: auto;   /* scroll vertical */
+  overscroll-behavior: contain;   /* evita rebotes que arrastren el body */
+  -webkit-overflow-scrolling: touch; /* inercia en iOS */
+  scrollbar-gutter: stable both-edges; /* evita “bailes” por la barra */
+  padding-bottom: 8px; /* respiro al final */
 }
 .hamburger-menu-list a {
   display: block;
@@ -2291,3 +2307,35 @@ html {
 
 /* Garantiza que nada tape el botón/panel */
 .hero-section, .section, footer, .btn-congreso { position: relative; z-index: 1; }
+
+
+/* Accesibilidad al navegar con teclado */
+.hamburger-menu-list a:focus-visible {
+  outline: 2px solid #7cc0ff;
+  outline-offset: 2px;
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.28);
+}
+
+/* Scrollbar (WebKit/Chromium) — opcional */
+.hamburger-menu-list::-webkit-scrollbar {
+  width: 10px;
+}
+.hamburger-menu-list::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.25);
+  border-radius: 8px;
+  border: 2px solid rgba(11,34,57,0.9);
+}
+.hamburger-menu-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Ajustes para pantallas con poca altura */
+@media (max-height: 700px) {
+  .hamburger-panel {
+    padding: 10px 8px calc(14px + env(safe-area-inset-bottom));
+  }
+  .hamburger-menu-list a {
+    padding: 10px 10px;
+  }
+}

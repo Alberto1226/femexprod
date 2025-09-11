@@ -1,81 +1,206 @@
+/* ======= Sección de eventos ======= */
 .events-section {
   background: #f4f4f4;
   padding: 2rem;
   text-align: center;
 }
 
-.events-section h3 {
+.events-section h3,
+.header-curvo-preregistro .titulo-preregistro {
   margin-bottom: 2rem;
   color: #003366;
 }
 
+/* ======= Grid de tarjetas ======= */
 .events-grid {
+  --max-width: 1200px;
+  --gap: 1.25rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 por fila en escritorio */
-  gap: 2rem;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--gap);
+  max-width: var(--max-width);
   margin: 0 auto;
+  padding: 0 0.5rem;
+}
+
+/* Tarjeta */
+.events-card-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .events-item {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
+  position: relative;
   cursor: pointer;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #ffffff00;
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
+  transition: transform .2s ease, box-shadow .2s ease;
+  width: 100%;
 }
 
 .events-item:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
 }
 
+/* Imagen de la tarjeta (cartel completo sin recortes) */
 .events-item img {
   width: 100%;
-  height: auto;
-  height: 500px; /* altura máxima para que no se pasen */
-  /* object-fit: contain; mostrar cartel completo sin recortes */
   display: block;
-  margin: 0 auto;
+  aspect-ratio: 3 / 4;              /* relación vertical típica de póster */
+  object-fit: contain;              /* mostrar completo sin recortar */
+  background: transparent;              /* marco sutil para "contain" */
+  max-height: clamp(260px, 45vh, 520px);
+  transition: transform .25s ease;
 }
 
-.events-card-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* centrar imagen y botón */
+.events-item:hover img { transform: scale(1.01); }
+
+/* Contador de imágenes */
+.badge-multi {
+  position: absolute;
+  bottom: 8px; right: 8px; z-index: 1;
+  background: rgba(0,0,0,.65);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  line-height: 1;
 }
 
+/* Botón "Agregar al calendario" debajo de la tarjeta */
 .add-to-calendar-wrapper {
-  margin-top: 0.5rem; /* espacio entre la imagen y el botón */
+  margin-top: .5rem;
 }
 
-/* Pantallas grandes */
+/* Miniaturas debajo de la tarjeta */
+.event-thumbs {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+
+.event-thumbs .thumb {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 64px;
+  height: 48px;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.1);
+}
+
+.event-thumbs .thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+
+/* ======= Lightbox ======= */
+.image-modal {
+  position: fixed; inset: 0; z-index: 9999;
+  display: flex; align-items: center; justify-content: center;
+  padding: 16px;
+}
+
+.modal-backdrop {
+  position: absolute; inset: 0; background: rgba(0,0,0,.7);
+}
+
+.modal-img {
+  max-width: min(92vw, 1100px);
+  max-height: 85vh;
+  border-radius: 10px;
+  position: relative; z-index: 1;
+  box-shadow: 0 10px 30px rgba(0,0,0,.5);
+  background: #111;
+}
+
+/* Botón cerrar */
+.close-btn {
+  position: absolute; top: 16px; right: 16px; z-index: 2;
+  background: rgba(0,0,0,.6); color: #fff;
+  border: 0; border-radius: 999px;
+  width: 40px; height: 40px;
+  font-size: 20px; cursor: pointer;
+}
+
+/* Flechas de navegación */
+.nav-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  z-index: 2; background: rgba(0,0,0,.6); color: #fff; border: 0;
+  width: 44px; height: 44px; border-radius: 999px; font-size: 22px; cursor: pointer;
+}
+
+.nav-prev { left: 24px; }
+.nav-next { right: 24px; }
+
+/* Miniaturas dentro del lightbox (si las activas) */
+.thumbs {
+  position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 8px; z-index: 2;
+}
+
+.thumb {
+  border: 2px solid transparent; padding: 0; background: none; cursor: pointer;
+  width: 60px; height: 40px; overflow: hidden; border-radius: 6px;
+}
+
+.thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.thumb.active { border-color: #fff; }
+
+/* ======= Breakpoints ======= */
+
+/* Pantallas muy grandes */
 @media (min-width: 1400px) {
-  .events-grid {
-    gap: 3rem;
-  }
+  .events-grid { --gap: 2rem; }
 }
 
-/* Tablets */
+/* Tablets (≈ 2 columnas) */
 @media (max-width: 1024px) {
   .events-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
   .events-item img {
-    max-height: 400px; /* imágenes más pequeñas en tablets */
-    object-fit: contain;
+    max-height: clamp(220px, 40vh, 420px);
   }
+  .nav-btn { width: 48px; height: 48px; font-size: 22px; }
 }
 
-/* Móviles */
+/* Móviles (1 columna) */
 @media (max-width: 600px) {
   .events-grid {
-    grid-template-columns: 1fr; /* Una columna */
+    grid-template-columns: 1fr;
+    --gap: 1rem;
   }
-
   .events-item img {
-    max-height: 300px; /* imágenes más chicas en móviles */
-    object-fit: contain;
+    max-height: clamp(200px, 38vh, 360px);
   }
+  .image-modal { padding: 10px; }
+  .close-btn { top: 10px; right: 10px; width: 40px; height: 40px; }
+  .nav-btn { width: 52px; height: 52px; font-size: 24px; }
+}
+
+/* ======= Accesibilidad y preferencias ======= */
+@media (prefers-reduced-motion: reduce) {
+  .events-item,
+  .events-item img { transition: none !important; }
+}
+
+/* ======= Modo oscuro (opcional si tu tema lo usa) ======= */
+@media (prefers-color-scheme: dark) {
+  .events-section { background: #0f1115; }
+  .events-section h3,
+  .header-curvo-preregistro .titulo-preregistro { color: #dbe7ff; }
+  .events-item { background: #12151b; box-shadow: 0 4px 12px rgba(0,0,0,.4); }
+  .event-thumbs .thumb { box-shadow: 0 2px 6px rgba(0,0,0,.4); }
+  .modal-img { background: #000; }
 }
