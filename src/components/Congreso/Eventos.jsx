@@ -103,15 +103,15 @@ const Eventos = () => {
       endTime: "23:59",
       name: "EXOCAD",
     },
-    {
-      cover: Protesis,
-      gallery: [Protesis, Protesis2], // << Prótesis tiene 2 imágenes
-      location: "Refugio 20, Nativitas, Benito Juárez CP 03500 CDMX",
-      startDate: "2025-09-18",
-      startTime: "09:30",
-      endTime: "23:59",
-      name: "CURSO PROTESIS FIJA DIGITAL",
-    },
+    // {
+    //   cover: Protesis,
+    //   gallery: [Protesis, Protesis2], // << Prótesis tiene 2 imágenes
+    //   location: "Refugio 20, Nativitas, Benito Juárez CP 03500 CDMX",
+    //   startDate: "2025-09-18",
+    //   startTime: "09:30",
+    //   endTime: "23:59",
+    //   name: "CURSO PROTESIS FIJA DIGITAL",
+    // },
   ];
 
   const sortedEvents = [...events].sort(
@@ -145,7 +145,7 @@ const Eventos = () => {
         </div>
 
         <div className="events-grid">
-          {sortedEvents.map((event, index) => {
+          {events.map((event, index) => {
             const imgs = imagesForEvent(event);
             const totalImgs = imgs.length;
             return (

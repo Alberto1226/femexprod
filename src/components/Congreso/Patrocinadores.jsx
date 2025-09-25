@@ -15,6 +15,7 @@ import k9 from "../../assets/img/sponsors/1.jpeg";
 import smart from "../../assets/img/sponsors/smart.jpeg";
 import bio from "../../assets/img/sponsors/Bio.jpeg";
 import r from "../../assets/img/sponsors/r.jpeg";
+import flex from "../../assets/img/sponsors/flex.jpeg";
 // Agrega las demás imágenes aquí
 
 const Patrocinadores = () => {
@@ -32,6 +33,7 @@ const Patrocinadores = () => {
     smart,
     bio,
     r,
+    flex,
     // ... el resto de los logos importados
   ];
 
