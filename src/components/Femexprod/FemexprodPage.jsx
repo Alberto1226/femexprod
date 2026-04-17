@@ -23,6 +23,7 @@ import CredencialPromo from "../Congreso/CredencialPromo";
 import Patrocinadores from "../Congreso/Patrocinadores";
 import Eventos from "../Congreso/Eventos";
 import Areas from "../Congreso/Espacion";
+import MainEventsSlider from "./MainEventsSlider";
 
 const FemexprodPage = () => {
   const [data, setData] = useState(null);
@@ -76,6 +77,7 @@ const FemexprodPage = () => {
 
   return (
     <div>
+
       <Helmet>
         <title>FEMEXPROD - Federación Mexicana de Protesistas Dentales</title>
         <meta
@@ -84,8 +86,8 @@ const FemexprodPage = () => {
         />
       </Helmet>
 
-     {/* Botón hamburguesa (arriba derecha) */}
-<button
+      {/* Botón hamburguesa (arriba derecha) */}
+      <button
         className="hamburger-btn"
         aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
         aria-expanded={menuOpen}
@@ -94,50 +96,50 @@ const FemexprodPage = () => {
         {menuOpen ? (
           // Ícono X
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
-            <path d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7a1 1 0 0 0-1.41 1.41L10.59 12l-4.9 4.89a1 1 0 1 0 1.41 1.41L12 13.41l4.89 4.9a1 1 0 0 0 1.41-1.41L13.41 12l4.9-4.89a1 1 0 0 0-.01-1.4z"/>
+            <path d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7a1 1 0 0 0-1.41 1.41L10.59 12l-4.9 4.89a1 1 0 1 0 1.41 1.41L12 13.41l4.89 4.9a1 1 0 0 0 1.41-1.41L13.41 12l4.9-4.89a1 1 0 0 0-.01-1.4z" />
           </svg>
         ) : (
           // Ícono menú hamburguesa
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
-            <path d="M3 6h18a1 1 0 0 0 0-2H3a1 1 0 0 0 0 2zm18 5H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2zm0 7H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2z"/>
+            <path d="M3 6h18a1 1 0 0 0 0-2H3a1 1 0 0 0 0 2zm18 5H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2zm0 7H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2z" />
           </svg>
         )}
       </button>
 
 
-{/* Overlay */}
-{menuOpen && <div className="hamburger-overlay" onClick={() => setMenuOpen(false)} />}
+      {/* Overlay */}
+      {menuOpen && <div className="hamburger-overlay" onClick={() => setMenuOpen(false)} />}
 
-{/* Panel lateral (desde la derecha) */}
-<nav
-  className={`hamburger-panel right ${menuOpen ? "open" : ""}`}
-  aria-hidden={!menuOpen}
->
-  <button
-    className="hamburger-close"
-    aria-label="Cerrar menú"
-    onClick={() => setMenuOpen(false)}
-  >
-    ✕
-  </button>
+      {/* Panel lateral (desde la derecha) */}
+      <nav
+        className={`hamburger-panel right ${menuOpen ? "open" : ""}`}
+        aria-hidden={!menuOpen}
+      >
+        <button
+          className="hamburger-close"
+          aria-label="Cerrar menú"
+          onClick={() => setMenuOpen(false)}
+        >
+          ✕
+        </button>
 
-  <ul className="hamburger-menu-list">
-    <li><a href="#acerca"         onClick={(e)=>handleNavClick(e,"#acerca")}>Acerca</a></li>
-    <li><a href="#objetivo"       onClick={(e)=>handleNavClick(e,"#objetivo")}>Objetivo</a></li>
-    <li><a href="#mision"         onClick={(e)=>handleNavClick(e,"#mision")}>Misión y Visión</a></li>
-    <li><a href="#valores"        onClick={(e)=>handleNavClick(e,"#valores")}>Valores</a></li>
-    <li><a href="#contacto"       onClick={(e)=>handleNavClick(e,"#contacto")}>Contáctanos</a></li>
-    <li><a href="#congreso"       onClick={(e)=>handleNavClick(e,"#congreso")}>Congreso</a></li>
-    <li><a href="#invitacion"     onClick={(e)=>handleNavClick(e,"#invitacion")}>Invitación</a></li>
-    {/* <li><a href="#hotel"        onClick={(e)=>handleNavClick(e,"#hotel")}>Hotel</a></li> */}
-    <li><a href="#precios"        onClick={(e)=>handleNavClick(e,"#precios")}>Precios</a></li>
-    <li><a href="#redes"          onClick={(e)=>handleNavClick(e,"#redes")}>Redes</a></li>
-    <li><a href="#preregistro"    onClick={(e)=>handleNavClick(e,"#preregistro")}>Pre-Registro</a></li>
-    <li><a href="#eventos"        onClick={(e)=>handleNavClick(e,"#eventos")}>Eventos</a></li>
-    <li><a href="#areas"          onClick={(e)=>handleNavClick(e,"#areas")}>Áreas</a></li>
-    <li><a href="#patrocinadores" onClick={(e)=>handleNavClick(e,"#patrocinadores")}>Patrocinadores</a></li>
-  </ul>
-</nav>
+        <ul className="hamburger-menu-list">
+          <li><a href="#acerca" onClick={(e) => handleNavClick(e, "#acerca")}>Acerca</a></li>
+          <li><a href="#objetivo" onClick={(e) => handleNavClick(e, "#objetivo")}>Objetivo</a></li>
+          <li><a href="#mision" onClick={(e) => handleNavClick(e, "#mision")}>Misión y Visión</a></li>
+          <li><a href="#valores" onClick={(e) => handleNavClick(e, "#valores")}>Valores</a></li>
+          <li><a href="#contacto" onClick={(e) => handleNavClick(e, "#contacto")}>Contáctanos</a></li>
+          <li><a href="#congreso" onClick={(e) => handleNavClick(e, "#congreso")}>Congreso</a></li>
+          <li><a href="#invitacion" onClick={(e) => handleNavClick(e, "#invitacion")}>Invitación</a></li>
+          {/* <li><a href="#hotel"        onClick={(e)=>handleNavClick(e,"#hotel")}>Hotel</a></li> */}
+          <li><a href="#precios" onClick={(e) => handleNavClick(e, "#precios")}>Precios</a></li>
+          <li><a href="#redes" onClick={(e) => handleNavClick(e, "#redes")}>Redes</a></li>
+          <li><a href="#preregistro" onClick={(e) => handleNavClick(e, "#preregistro")}>Pre-Registro</a></li>
+          <li><a href="#eventos" onClick={(e) => handleNavClick(e, "#eventos")}>Eventos</a></li>
+          <li><a href="#areas" onClick={(e) => handleNavClick(e, "#areas")}>Áreas</a></li>
+          <li><a href="#patrocinadores" onClick={(e) => handleNavClick(e, "#patrocinadores")}>Patrocinadores</a></li>
+        </ul>
+      </nav>
 
       {/* HERO */}
       <div className="hero-section">
@@ -160,6 +162,7 @@ const FemexprodPage = () => {
       </div>
 
       {/* Secciones dinámicas con animación */}
+      <MainEventsSlider />
       <Fade triggerOnce direction="up" duration={800}>
         <div id="acerca" className="section">
           <AcercaDe info={data.acerca_de} />
@@ -228,11 +231,11 @@ const FemexprodPage = () => {
                 <div id="promo" className="section"><CredencialPromo /></div>
             </Fade> */}
 
-      <Fade triggerOnce direction="up" duration={800} delay={800}>
+      {/* <Fade triggerOnce direction="up" duration={800} delay={800}>
         <div id="eventos" className="section mb-4">
           <Eventos />
         </div>
-      </Fade>
+      </Fade> */}
       <Fade triggerOnce direction="up" duration={800} delay={800}>
         <div id="areas" className="section">
           <Areas />
