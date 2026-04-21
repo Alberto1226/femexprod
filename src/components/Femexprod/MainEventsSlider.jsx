@@ -14,8 +14,8 @@ const events = [
   { id: 2, img: event2, title: 'Congreso Inversión 2' },
   { id: 3, img: event3, title: 'Congreso Inversión 3' },
   { id: 4, img: event4, title: 'Congreso Inversión 4' },
-  { id: 5, img: event5, title: 'Programa Técnico 1' },
-  { id: 6, img: event6, title: 'Programa Técnico 2' },
+  { id: 5, img: event6, title: 'Programa Técnico 1' },
+  { id: 6, img: event5, title: 'Programa Técnico 2' },
 ];
 
 const MainEventsSlider = () => {
@@ -111,18 +111,18 @@ const MainEventsSlider = () => {
           <button className="lightbox-close" onClick={closeLightbox}>
             <i className="fas fa-times"></i>
           </button>
-          
+
           <button className="lightbox-nav prev" onClick={prevLightbox}>
             <i className="fas fa-chevron-left"></i>
           </button>
-          
+
           <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
             <img src={events[lightboxIndex].img} alt={events[lightboxIndex].title} className="lightbox-image" />
             <div className="lightbox-info">
               {events[lightboxIndex].title} ({lightboxIndex + 1} / {events.length})
             </div>
           </div>
-          
+
           <button className="lightbox-nav next" onClick={nextLightbox}>
             <i className="fas fa-chevron-right"></i>
           </button>
