@@ -54,11 +54,11 @@ const FooterCongreso = () => {
                     <button className="cerrar-contador" onClick={() => setMostrarContador(false)}>✕</button>
                     <div className="contador-card boletos">
                         <p className="contador-label">BOLETOS VENDIDOS</p>
-                        <p className="contador-numero">23</p>
+                        <p className="contador-numero">82</p>
                     </div>
                     <div className="contador-card patrocinadores">
                         <p className="contador-label">PATROCINADORES</p>
-                        <p className="contador-numero">13</p>
+                        <p className="contador-numero">19</p>
                     </div>
                 </div>
             )}
